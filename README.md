@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 项目概述
+## 一、📋 项目概述
 使用 **Android Studio + Java** 实现一个高仿抖音“经验”频道的移动端页面。核心功能包括：
 
 + 双列瀑布流布局展示经验卡片
@@ -19,7 +19,7 @@
 
 ---
 
-## ✅ 功能实现
+## 二、✅ 功能实现
 | 功能模块 | 描述 |
 | :--- | :--- |
 | **双列瀑布流布局** | 使用 `RecyclerView`+`StaggeredGridLayoutManager` 实现两列不规则高度排列 |
@@ -34,7 +34,7 @@
 
 ---
 
-## 🛠️ 技术选型
+## 三、🛠️ 技术选型
 | 技术 | 工具/库 |
 | --- | --- |
 | 双列瀑布流布局 | `RecyclerView`+`StaggeredGridLayoutManager` |
@@ -49,7 +49,7 @@
 
 ---
 
-## 🗂️ 项目结构设计
+## 四、🗂️ 项目结构设计
 ```plain
 app/
 ├── build/                 # 构建输出目录
@@ -78,19 +78,19 @@ app/
 
 ---
 
-## 🔧 关键代码实现思路
-### 基本布局静态搭建
-#### 动画页
+## 五、🔧 关键代码实现思路
+### (一)基本布局静态搭建
+#### 1.动画页
 ![](https://cdn.nlark.com/yuque/0/2025/png/56028206/1764430222774-42171cc3-649d-4fad-9262-fd28f7b016c6.png)
 
-#### 主页
+#### 2.主页
 ![](https://cdn.nlark.com/yuque/0/2025/png/56028206/1764430202973-d50a9208-a4cb-4f6f-96d3-ebc125a91cec.png)
 
-#### 经验频道Fragment
+#### 3.经验频道Fragment
 ![](https://cdn.nlark.com/yuque/0/2025/png/56028206/1764430280586-585f653d-f3b2-4bf7-92f2-8ae00d96f11a.png)
 
-### `ViewPager2`+`TabLayout`+`Fragment`滑动切换标签页
-#### 使用ViewPager2
+### (二)`ViewPager2`+`TabLayout`+`Fragment`滑动切换标签页
+#### 1.使用ViewPager2
 ```java
 private void initViewPager() {
     //滑动组件
@@ -114,7 +114,7 @@ private void initViewPager() {
 > 找到MainActivity中的viewpager2组件，设置Adapter，实现对应的两个方法。
 >
 
-#### 使用TabLayout
+#### 2.使用TabLayout
 ```java
     private void initTabLayout() {
         //1.初始化组件
@@ -146,7 +146,7 @@ private void initViewPager() {
     }
 ```
 
-#### Fragment集合
+#### 3.Fragment集合
 ```java
 public interface fragmentConstant {
     /**
@@ -168,8 +168,8 @@ public interface fragmentConstant {
 > 配合ViewPager中的`createFragment()`方法动态创建不同的Fragment应用不同的布局
 >
 
-### RecycleView瀑布流布局展示数据
-#### 数据准备
+### (三)RecycleView瀑布流布局展示数据
+#### 1.数据准备
 ```java
 public class PostVo implements Serializable {
     /**
@@ -198,18 +198,18 @@ public class PostVo implements Serializable {
     private String userNickName;
 ```
 
-#### PostVoAdapter
+#### 2.PostVoAdapter
 > 1. 通过构造函数获取数据列表
 > 2. `onCreateViewHolder()`方法中加载对应Fragment的布局，并返回`ViewHolder`，`ViewHolder`中就会对布局中的UI控件进行绑定
 > 3.  `onBindViewHolder()`方法中`ViewHolder`对数据绑定到具体的UI控件中
 >
 
-#### PostVoViewHolder
+#### 3.PostVoViewHolder
 > 1. UI控件绑定
 > 2. 数据绑定到UI控件中
 >
 
-#### 经验频道的Fragment中使用RecycleView瀑布流展示数据
+#### 4.经验频道的Fragment中使用RecycleView瀑布流展示数据
 ```java
 //.ObjectFragment
 @Override
@@ -230,7 +230,7 @@ public class PostVo implements Serializable {
 > 3. 设置布局管理器
 >
 
-### RecycleViewItem交互
+### (四)RecycleViewItem交互
 1. 定义item点击接口
 
 ```java
@@ -275,7 +275,7 @@ PostVoAdapter postVoAdapter = new PostVoAdapter(initData());
 > 3. 更数数据重新渲染所有可见的列表项，PostVoViewHolder根据点赞标志位重新设置点赞图片资源
 >
 
-### 下拉刷新
+### (五)下拉刷新
 ```java
       swipeRefresh = view.findViewById(R.id.swipe_refresh);
         swipeRefresh.setOnRefreshListener(() -> {
@@ -288,7 +288,7 @@ PostVoAdapter postVoAdapter = new PostVoAdapter(initData());
 > 找到刷新控件，进行监听，下拉的时候重新渲染数据
 >
 
-### 上拉加载更多
+### (六)上拉加载更多
 ```java
             //上拉刷新监听
             mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -315,7 +315,7 @@ PostVoAdapter postVoAdapter = new PostVoAdapter(initData());
 > 对RecyclerView滑动事件监听，通过布局管理器获取每一列可见item的位置，找到其中位置最大的跟总item数进行比较来判断是否达到了底部，达到底部多加载30条数据
 >
 
-### Glide加载图片
+### (七)Glide加载图片
 ```kotlin
 // 添加 Glide 依赖
 implementation("com.github.bumptech.glide:glide:4.11.0")
@@ -353,7 +353,7 @@ Glide.with(itemView.getContext())
 > PostVoViewHolder数据绑定的时候使用
 >
 
-### 缓存策略
+### (八)缓存策略
 `RecyclerView` 默认支持预加载
 
 ```java
@@ -366,7 +366,7 @@ recyclerView.setItemViewCacheSize(4);
     staggeredLayoutManager.setItemPrefetchEnabled(true);
 ```
 
-##  问题
+##  六、问题
 ## 🔧 问题 1：使用`ViewPager2`+`TabLayout`+`Fragment`加载不同的Fragment，但是没做到动态的布局切换
 + **解决**：创建多个Fragment使用不同的布局，并集中管理，ViewPager2根据position创建出不同布局的Fragment
 
@@ -381,7 +381,7 @@ recyclerView.setItemViewCacheSize(4);
 ## 🔧 问题 4：监听点赞控件的点击时间，点击之后连续点击无效，不能丝滑修改点赞状态以及点赞数量
 ---
 
-## 参考资料
+## 七、参考资料
 <font style="color:rgba(38, 36, 76, 0.88);background-color:rgb(242, 240, 255);"></font>[Android入门教程 | RecyclerView响应子项点击 - 哔哩哔哩](https://www.bilibili.com/opus/590727263573938839?from=search&spm_id_from=333.337.0.0)
 
 [Android Fragment 全解析-CSDN博客](https://blog.csdn.net/weixin_37794278/article/details/149660227)
