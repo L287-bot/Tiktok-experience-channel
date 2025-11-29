@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:layout_margin="2dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+>
+    <LinearLayout
+        android:id="@+id/cardInformationRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#111111"
+        android:orientation="vertical"
+        tools:ignore="DuplicateIds">
+
+        <!-- 文本信息容器 -->
+        <ImageView
+            android:id="@+id/cardImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="260dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo" />
+
+        <LinearLayout
+            android:id="@+id/cardInformation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/post_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:text="兜兜转转好像回到了远点吗？"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+            <LinearLayout
+                android:id="@+id/cardInformation"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#1E1E1E"/>
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/user_thumb"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="end"
+                    android:src="@drawable/unthumb"
+                    />
+                <TextView
+                    android:id="@+id/thumb_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="2131"
+                    android:gravity="center_vertical"
+                    android:textSize="15dp"
+                    android:layout_gravity="end"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>

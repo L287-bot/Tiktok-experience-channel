@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/demo"
+    android:background="#000000"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+<LinearLayout
+    android:id="@+id/searchInput"
+    android:layout_width="match_parent"
+    app:layout_constraintTop_toTopOf="@+id/demo"
+    android:layout_marginTop="5dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/shape2">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchInputText"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:hint="请输入搜索内容"
+        android:padding="10dp"
+        android:textColor="#C1C1C1"
+        android:textColorHint="#C1C1C1"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/SearchInputBottom"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="搜索"
+        android:textSize="17sp"
+        android:textColor="#C1C1C1"
+       android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/search" />
+
+
+</LinearLayout>
+        <!-- 下拉刷新容器 -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            tools:listitem="@layout/item_post" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

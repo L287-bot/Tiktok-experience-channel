@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 状态1：按压时的资源 -->
+    <item android:state_pressed="true" android:drawable="@drawable/selectorcolor1" />
+    <!-- 状态2：选中时的资源 -->
+    <item android:state_selected="true" android:drawable="@drawable/selectorcolor2" />
+    <!-- 默认状态：无任何状态时的资源（必须放在最后） -->
+    <item android:drawable="@drawable/selectorcolor3" />
+</selector>
