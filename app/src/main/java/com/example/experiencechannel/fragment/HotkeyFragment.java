@@ -61,7 +61,7 @@ public class HotkeyFragment extends Fragment {
         mVideoVoList.add(new VideoVo(R.drawable.avatar2, 256, "美食制作教程分享", 78, 156, "美食达人", R.drawable.handsome2, 67));
         mVideoVoList.add(new VideoVo(R.drawable.avatar3, 89, "健身日常打卡", 34, 67, "健身教练", R.drawable.handsome3, 12));
         mVideoVoList.add(new VideoVo(R.drawable.avatar4, 345, "山水风景欣赏", 123, 234, "摄影师", R.drawable.handsome4, 89));
-        mVideoVoList.add(new VideoVo(R.drawable.chao, 123,  "宠物日常记录", 23, 45, "宠物爱好者", R.drawable.tang, 15));
+        mVideoVoList.add(new VideoVo(R.drawable.chao, 123,  "宠物日常记录", 23, 45, "宠物爱好者", R.drawable.handsome4, 15));
         mVideoVoList.add(new VideoVo(R.drawable.tang, 178, "科技产品评测", 56, 134, "数码博主", R.drawable.avatar2, 45));
         mVideoVoList.add(new VideoVo(R.drawable.handsome, 98, "家居装饰灵感", 39, 76, "室内设计师", R.drawable.avatar3, 28));
         mVideoVoList.add(new VideoVo(R.drawable.handsome2, 234, "音乐创作分享", 87, 167, "音乐人", R.drawable.avatar4, 56));
